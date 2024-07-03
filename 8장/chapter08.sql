@@ -1,0 +1,60 @@
+--집합 쿼리
+--UNION ALL 합집합
+--집합 연산자를 사용한 쿼리으 ㅣ최종 조회 결과는 첫번째 SELECT 문의 컬럼 명을 기준으로 함
+SELECT * FROM EMP03;
+SELECT * FROM EMP08;
+
+SELECT * FROM EMP03
+UNION ALL 
+SELECT * FROM EMP08;
+
+SELECT EMP_ID, EMP_NAME, GENDER FROM EMP03
+UNION ALL 
+SELECT EMP_ID2, EMP_NAME2, GENDER FROM EMP08;
+
+--UNION ALL 정렬 할 경우 문장 맨 끝에만 사용
+--단, 첫번째 SELECT 절의 컬럼 명을 따라야함 
+SELECT EMP_ID, EMP_NAME, GENDER FROM EMP03
+UNION ALL 
+SELECT EMP_ID2, EMP_NAME2, GENDER FROM EMP08
+ORDER BY EMP_ID;
+
+--UNION 중복 데이터가 존재할 경우 데이터가 1건만 조회
+--따라서 합집합의 개념은 UNION ALL이 아니라 UNION임
+SELECT EMP_NAME FROM EMP03
+UNION 
+SELECT EMP_NAME2 FROM EMP08
+ORDER BY 1;
+
+--중복이 아닌 컬럼에 대한 중복을 사용할 경우, 중복이라 간주하지 않기 때문에 데이터가 모두 조회됨
+--즉, 집합 연산자를 사용한 쿼리의 경우 개별 SELECT 문에서 변환한 컬럼갓 모두를 체크해 중복 여부를 확인함
+SELECT EMP_ID, EMP_NAME, GENDER FROM EMP03
+UNION
+SELECT EMP_ID2, EMP_NAME2, GENDER FROM EMP08
+ORDER BY EMP_ID;
+
+--INTERSECT 교집합 => 중복 데이터만 추출
+SELECT EMP_NAME FROM EMP03
+INTERSECT 
+SELECT EMP_NAME2 FROM EMP08
+ORDER BY 1;
+
+--공통 요소가 없다면 아무것도 출력되지 않음
+SELECT EMP_ID, EMP_NAME, GENDER FROM EMP03
+INTERSECT
+SELECT EMP_ID2, EMP_NAME2, GENDER FROM EMP08
+ORDER BY EMP_ID;
+
+--MINUS 차집합
+--첫번째 쿼리 결과와 두번째 쿼리 결과를 비교회 첫번째 결과에만 있는 데이터만 조회 하는것,
+--공통 요소에 해당하는것만 제외하고 조회
+--첫번째 결과 집합에서 두번째 결과 집합을 뺀다고 생각하면 됨
+SELECT EMP_NAME FROM EMP03
+MINUS 
+SELECT EMP_NAME2 FROM EMP08
+ORDER BY 1;
+
+SELECT EMP_NAME2 FROM EMP08
+MINUS 
+SELECT EMP_NAME FROM EMP03
+ORDER BY 1;
