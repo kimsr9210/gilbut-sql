@@ -65,3 +65,13 @@ VALUES (3, '서울특별시', '영등포구', '여의대로 99');
 
 INSERT INTO address_master ( address_id, city, gu, address_name )
 VALUES (4, '서울특별시', '강남구', '테헤란로 33');
+
+INSERT INTO emp_master ( emp_id, emp_name, gender, age, hire_date, dept_id, address_id )
+VALUES (6, '왕건', '남성', 35, TO_DATE('2018-01-01', 'YYYY-MM-DD'), NULL, 4);
+
+COMMIT;
+
+INSERT INTO dept_master ( dept_id, dept_name )
+VALUES (5, 'IT팀');
+
+COMMIT;

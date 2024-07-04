@@ -31,13 +31,3 @@ INSERT INTO emp08 ( emp_id2, emp_name2, gender, age, hire_date )
 VALUES (5, '신사임당', '여성', 45, TO_DATE('2018-02-01', 'YYYY-MM-DD'));
 
 COMMIT;
-
-INSERT INTO emp_master ( emp_id, emp_name, gender, age, hire_date, dept_id, address_id )
-VALUES (6, '왕건', '남성', 35, TO_DATE('2018-01-01', 'YYYY-MM-DD'), NULL, 4);
-
-COMMIT;
-
-INSERT INTO dept_master ( dept_id, dept_name )
-VALUES (5, 'IT팀');
-
-COMMIT;
