@@ -1,6 +1,7 @@
 SELECT * FROM dept_master; --부서 테이블
 SELECT * FROM address_master; --주소 테이블
 SELECT * FROM emp_master; --사원 테이블
+
 --INNER JOIN(내부조인)
 --조인 컬럼값이 같은건만 조회
 --사원정보 기준으로 부서정보를 조인하는 쿼리 
