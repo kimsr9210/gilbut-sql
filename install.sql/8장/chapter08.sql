@@ -36,3 +36,8 @@ INSERT INTO emp_master ( emp_id, emp_name, gender, age, hire_date, dept_id, addr
 VALUES (6, '왕건', '남성', 35, TO_DATE('2018-01-01', 'YYYY-MM-DD'), NULL, 4);
 
 COMMIT;
+
+INSERT INTO dept_master ( dept_id, dept_name )
+VALUES (5, 'IT팀');
+
+COMMIT;
