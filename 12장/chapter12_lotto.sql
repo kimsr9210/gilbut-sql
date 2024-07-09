@@ -19,5 +19,13 @@ SELECT NUM1, COUNT(*) CNT
 GROUP BY NUM1
 ORDER BY CNT DESC;
 
+ --가장 많은 당청금이 나온 회차와 번호, 금액 조회
+SELECT * 
+ FROM lotto_master a
+     ,lotto_detail b
+WHERE a.seq_no = b.seq_no
+ AND b.rank_no = 1
+ORDER BY b.win_money DESC;
+
 
 
