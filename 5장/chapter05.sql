@@ -1,3 +1,4 @@
+--데이터 조회 SELECT문
 SELECT * FROM subway_statistics
 WHERE station_name LIKE '선릉%'
 --AND (boarding_time = 7 OR boarding_time = 8); --연산자 우선순위 때문에 괄호로 묶어야됨B
