@@ -29,6 +29,15 @@ FROM traffic_accident
 GROUP BY trans_type
 ORDER BY trans_type;
 
+--교통수단별 가장 많은 사망자 수가 발생한 연도 구하기
+SELECT * FROM traffic_accident a
+    , (
+    SELECT trans_type, MAX(death_person_num) death_per 
+     FROM traffic_accident
+    GROUP BY trans_type
+) b 
+WHERE a.trans_type = b.trans_type
+ AND a.death_person_num = b.death_per;
 
 
 
